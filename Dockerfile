@@ -37,11 +37,8 @@ RUN apt install -y \
   krb5-user \
   zsh
 
-# Clean apt lists
-RUN rm -rf /var/lib/apt/lists/*
-
 # Set no password for docker user
-RUN aptitude install -y sudo
+RUN apt-get install -y sudo
 RUN echo "docker ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # Create a new user
@@ -55,6 +52,3 @@ RUN git clone --progress --verbose https://github.com/gcamerli/42krb.git kerbero
 WORKDIR $HOME/kerberos/script
 RUN sh run.sh
 WORKDIR $HOME
-
-# Set oh-my-zsh
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
