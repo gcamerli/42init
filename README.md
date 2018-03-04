@@ -12,8 +12,6 @@ This **Dockerfile** is related to this **docker** image:
 
 ### **Packages**
 
-**Dev environment**
-
 **Shell**
 
 + zsh
@@ -35,9 +33,9 @@ To automate the operations with **docker** you can use the following scripts:
 + [clean.sh](script/clean.sh)
 + [remove.sh](script/remove.sh)
 
-### **GPL License**
+### **License**
 
-This work is licensed under the terms of **[GNU General Public License v3.0](https://www.gnu.org/licenses/gpl.html)**.
+This work is published under the terms of **[42 Unlicense](https://github.com/gcamerli/42unlicense)**.
 
 ### **Donations**
 
