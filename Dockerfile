@@ -1,6 +1,6 @@
 FROM debian:jessie
 
-LABEL maintainer="https://gcamer.li"
+LABEL maintainer="Gius. Camerlingo <gcamerli@gmail.com>"
 
 # Add name to Docker image
 ENV NAME=42init
@@ -15,26 +15,20 @@ RUN echo "deb http://security.debian.org jessie/updates main contrib non-free" >
 
 # Update Debian
 RUN apt update -y
-RUN apt upgrade -y
 RUN apt install -y \
   apt-utils \
   xterm \
   dialog \
   build-essential \
-  autoconf \
-  dh-autoreconf \
-  automake \
-  autogen \
   libtool \
   curl \
   wget \
-  screen \
-  libudev-dev \
   vim \
   git \
   openssh-client \
-  openssh-server \
   krb5-user \
+  iptables \
+  cron \
   zsh
 
 # Set no password for docker user
@@ -42,7 +36,7 @@ RUN apt-get install -y sudo
 RUN echo "docker ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # Create a new user
-RUN useradd -ms /bin/zsh docker
+RUN useradd -ms /bin/bash docker
 USER docker
 ENV HOME=/home/docker
 WORKDIR $HOME
