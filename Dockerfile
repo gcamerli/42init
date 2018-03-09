@@ -14,8 +14,8 @@ RUN echo "deb http://deb.debian.org/debian jessie-updates main contrib non-free"
 RUN echo "deb http://security.debian.org jessie/updates main contrib non-free" >> /etc/apt/sources.list
 
 # Update Debian
-RUN apt update -y
-RUN apt install -y \
+RUN apt-get update -y
+RUN apt-get install -y \
   apt-utils \
   xterm \
   dialog \
@@ -29,14 +29,14 @@ RUN apt install -y \
   krb5-user \
   iptables \
   cron \
+  sudo \
   zsh
 
 # Set no password for docker user
-RUN apt-get install -y sudo
 RUN echo "docker ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # Create a new user
-RUN useradd -ms /bin/bash docker
+RUN useradd -ms /bin/zsh docker
 USER docker
 ENV HOME=/home/docker
 WORKDIR $HOME
@@ -46,3 +46,6 @@ RUN git clone --progress --verbose https://github.com/gcamerli/42krb.git kerbero
 WORKDIR $HOME/kerberos/script
 RUN sh run.sh
 WORKDIR $HOME
+
+# Setup ohmyzsh
+RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
