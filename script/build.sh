@@ -1,4 +1,4 @@
 #!/bin/sh
 # ./build.sh
 
-docker build -t gcamerli/42init .
+docker build -t 42init .
