@@ -18,6 +18,10 @@ This **Dockerfile** is related to this **docker** image:
 + vim
 + git
 
+**Framework**
+
++ ohmyzsh
+
 **Network protocols**
 
 + openssh
