@@ -9,6 +9,8 @@ ENV NAME=42init
 ENV TERM=xterm
 ENV DEBIAN_FRONTEND=noninteractive
 ENV RUNLEVEL=1
+
+# Update source list
 RUN echo "deb http://deb.debian.org/debian jessie main contrib non-free" > /etc/apt/sources.list
 RUN echo "deb http://deb.debian.org/debian jessie-updates main contrib non-free" >> /etc/apt/sources.list
 RUN echo "deb http://security.debian.org jessie/updates main contrib non-free" >> /etc/apt/sources.list
